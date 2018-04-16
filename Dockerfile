@@ -1,8 +1,14 @@
-FROM jfloff/alpine-python:3.4
-
-ENV AWS_ACCESS_KEY_ID foo
-ENV AWS_SECRET_ACCESS_KEY bar
-
-RUN pip install awscli
-
-CMD ['/bin/ash']
+FROM alpine:latest
+RUN apk -v --update add \
+        python \
+        py-pip \
+        groff \
+        less \
+        mailcap \
+        curl \
+        git \
+        && \
+    pip install --upgrade awscli s3cmd python-magic && \
+    apk -v --purge del py-pip && \
+    rm /var/cache/apk/*
+CMD ["aws", "--version"]
