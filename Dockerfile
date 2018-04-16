@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.7
 RUN apk -v --update add \
         python \
         py-pip \
