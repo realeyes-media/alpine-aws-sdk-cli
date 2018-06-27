@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM quay.io/realeyes/alpine-node-git
 RUN apk -v --update add \
         python \
         py-pip \
